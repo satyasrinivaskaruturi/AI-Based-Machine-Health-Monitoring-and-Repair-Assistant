@@ -1,0 +1,240 @@
+{
+  "version": 1,
+  "author": "Satya - Machine Health Monitoring Prototype",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": 120,
+      "left": 430,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-mpu6050",
+      "id": "imu",
+      "top": 40,
+      "left": 80,
+      "attrs": {
+        "accelX": "0.15",
+        "accelY": "0.10",
+        "accelZ": "1.00"
+      }
+    },
+    {
+      "type": "wokwi-ds18b20",
+      "id": "temp",
+      "top": 40,
+      "left": 300,
+      "attrs": {
+        "temperature": "45"
+      }
+    },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "current",
+      "top": 320,
+      "left": 40,
+      "attrs": {
+        "value": "350"
+      }
+    },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "noise",
+      "top": 320,
+      "left": 250,
+      "attrs": {
+        "value": "300"
+      }
+    },
+    {
+      "type": "board-ssd1306",
+      "id": "oled",
+      "top": 35,
+      "left": 590,
+      "attrs": {
+        "i2cAddress": "0x3c"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led",
+      "top": 330,
+      "left": 570,
+      "attrs": {
+        "color": "red",
+        "label": "FAULT"
+      }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "buzzer",
+      "top": 390,
+      "left": 570,
+      "attrs": {
+        "volume": "0.2"
+      }
+    },
+    {
+      "type": "wokwi-relay-module",
+      "id": "relay",
+      "top": 455,
+      "left": 540,
+      "attrs": {
+        "transistor": "npn"
+      }
+    }
+  ],
+  "connections": [
+    [
+      "esp:3V3",
+      "imu:VCC",
+      "red",
+      []
+    ],
+    [
+      "esp:GND.1",
+      "imu:GND",
+      "black",
+      []
+    ],
+    [
+      "esp:GPIO22",
+      "imu:SCL",
+      "green",
+      []
+    ],
+    [
+      "esp:GPIO21",
+      "imu:SDA",
+      "green",
+      []
+    ],
+    [
+      "esp:3V3",
+      "temp:VCC",
+      "red",
+      []
+    ],
+    [
+      "esp:GND.1",
+      "temp:GND",
+      "black",
+      []
+    ],
+    [
+      "esp:GPIO33",
+      "temp:DQ",
+      "blue",
+      []
+    ],
+    [
+      "esp:GPIO34",
+      "current:SIG",
+      "blue",
+      []
+    ],
+    [
+      "esp:3V3",
+      "current:VCC",
+      "red",
+      []
+    ],
+    [
+      "esp:GND.1",
+      "current:GND",
+      "black",
+      []
+    ],
+    [
+      "esp:GPIO32",
+      "noise:SIG",
+      "blue",
+      []
+    ],
+    [
+      "esp:3V3",
+      "noise:VCC",
+      "red",
+      []
+    ],
+    [
+      "esp:GND.1",
+      "noise:GND",
+      "black",
+      []
+    ],
+    [
+      "esp:3V3",
+      "oled:VCC",
+      "red",
+      []
+    ],
+    [
+      "esp:GND.1",
+      "oled:GND",
+      "black",
+      []
+    ],
+    [
+      "esp:GPIO22",
+      "oled:SCL",
+      "green",
+      []
+    ],
+    [
+      "esp:GPIO21",
+      "oled:SDA",
+      "green",
+      []
+    ],
+    [
+      "esp:GPIO19",
+      "led:A",
+      "green",
+      []
+    ],
+    [
+      "esp:GND.1",
+      "led:C",
+      "black",
+      []
+    ],
+    [
+      "esp:GPIO18",
+      "buzzer:1",
+      "green",
+      []
+    ],
+    [
+      "esp:GND.1",
+      "buzzer:2",
+      "black",
+      []
+    ],
+    [
+      "esp:GPIO17",
+      "relay:IN",
+      "green",
+      []
+    ],
+    [
+      "esp:5V",
+      "relay:VCC",
+      "red",
+      []
+    ],
+    [
+      "esp:GND.1",
+      "relay:GND",
+      "black",
+      []
+    ]
+  ],
+  "serialMonitor": {
+    "display": "always",
+    "newline": "lf",
+    "convertEol": true
+  }
+}

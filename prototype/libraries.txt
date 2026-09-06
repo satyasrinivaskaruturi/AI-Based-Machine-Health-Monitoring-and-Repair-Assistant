@@ -1,0 +1,6 @@
+Adafruit MPU6050
+Adafruit Unified Sensor
+OneWire
+DallasTemperature
+Adafruit GFX Library
+Adafruit SSD1306
